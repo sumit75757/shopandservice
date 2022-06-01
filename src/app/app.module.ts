@@ -31,7 +31,8 @@ import { PaymentComponent } from './payment/payment.component';
     ShoppingCartComponent,
     EmptyComponent,
     NotFoundComponent,
-    PaymentComponent
+    PaymentComponent,
+
   ],
   imports: [
     BrowserModule,
