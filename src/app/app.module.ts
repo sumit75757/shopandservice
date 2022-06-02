@@ -20,6 +20,10 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { EmptyComponent } from './empty/empty.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PaymentComponent } from './payment/payment.component';
+import { SigninComponent } from './auth1/signin/signin.component';
+import { SignupComponent } from './auth1/signup/signup.component';
+
+
 
 @NgModule({
   declarations: [
@@ -32,6 +36,8 @@ import { PaymentComponent } from './payment/payment.component';
     EmptyComponent,
     NotFoundComponent,
     PaymentComponent,
+    SigninComponent,
+    SignupComponent,
 
   ],
   imports: [
@@ -43,6 +49,8 @@ import { PaymentComponent } from './payment/payment.component';
     SharedModule,
     TooltipModule.forRoot(),
     CategoryModule,
+
+
     NotifierModule.withConfig({
       position: {
         horizontal: {

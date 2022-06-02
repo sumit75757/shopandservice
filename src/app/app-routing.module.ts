@@ -9,8 +9,8 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { EmptyComponent } from './empty/empty.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PaymentComponent } from './payment/payment.component';
-import { SingupComponent } from "../app/auth/singup/singup.component";
-import { SinginComponent } from "../app/auth/singin/singin.component";
+import { SigninComponent } from './auth1/signin/signin.component';
+import { SignupComponent } from './auth1/signup/signup.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: FrontPageComponent },
@@ -19,19 +19,28 @@ const routes: Routes = [
     component: CategoryComponent,
     children: [
       { path: ':category', component: CategoryListComponent },
-      { path: 'product/:id', component: ProductDetailComponent }
+      { path: 'product/:id', component: ProductDetailComponent },
+      { path: 'shopping-cart', component: ShoppingCartComponent },
+      { path: 'payment', component: PaymentComponent },
+       { path: 'empty', component: EmptyComponent },
     ]
   },
   {
-    path: 'auth',
-    loadChildren: () =>
-    import('./auth/auth.module').then((m) => m.AuthModule)
+    path: 'auth1',
+    //component: ,
+    children: [
+      { path: 'signin', component: SigninComponent },// route ma a : na ave a khali prea miter ma data pass karva mate use thay
+      { path: 'signup', component: SignupComponent },
+    ]
   },
+
 
   { path: 'shopping-cart', component: ShoppingCartComponent },
   { path: 'payment', component: PaymentComponent },
   { path: 'empty', component: EmptyComponent },
   // { path: '**', component: NotFoundComponent }
+
+
 ];
 
 @NgModule({
