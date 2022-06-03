@@ -25,7 +25,10 @@
                 </li>
                 <!-- Shopping Cart -->
                 <li><a [routerLink]="'./shopping-cart'" class="cart">Shopping Cart<span class="badge my-badge">{{dataService.shoppingCartData.length}}</span></a></li>
-            </ul>
+                <li> <a routerLink="./auth1/signin">signin</a></li>
+                <li><a routerLink="./auth1/signup" class="btn btn-link">SignUp</a></li>
+
+              </ul>
         </div>
     </div>
 </nav>

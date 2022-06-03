@@ -14,6 +14,6 @@ export class AuthServicService {
     return  this.http.post(this.baseurl +'api/auth/singin',{headers:this.header});
   }
   singup(data: any) {
-    return this.http.get(this.baseurl + 'api/auth/singup', {headers:this.header});
+    return this.http.post(this.baseurl + 'api/auth/singup', {headers:this.header});
   }
 }

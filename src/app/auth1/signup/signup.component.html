@@ -1,9 +1,12 @@
-<div class="show">
+<div class="show"  >
   <h1>SignUp</h1>
 <form [formGroup]="singupForm">
+  <label>UserName</label><br>
   <input type="text" formControlName="username" placeholder="username"><br>
+  <label>E-mail</label><br>
   <input type="email" formControlName="email" placeholder="email"><br>
+  <label>Password</label><br>
   <input type="password" formControlName="password" placeholder="password"><br>
 </form><br>
 <button  type="button" class="btn" (click)="singUp()">singUP</button>
-</div>
+
