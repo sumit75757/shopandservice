@@ -11,9 +11,9 @@ export class AuthServicService {
     Authorization: 'Bearer '+this.token,
   });
   loginin( data:any){
-    return  this.http.post(this.baseurl +'api/auth/singin',{headers:this.header});
+    return  this.http.post(this.baseurl +'api/auth/singin',data);
   }
   singup(data: any) {
-    return this.http.post(this.baseurl + 'api/auth/singup', {headers:this.header});
+    return this.http.post(this.baseurl + 'api/auth/singup',data);
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthServicService } from '../auth-servic.service';
 import { FormControl,Validator,FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -10,8 +11,9 @@ import { FormControl,Validator,FormGroup, Validators, FormBuilder } from '@angul
 export class SigninComponent implements OnInit {
   // info:any;
 
-  constructor(private _auth:AuthServicService,private fb:FormBuilder) { }
+  constructor(private auth:AuthServicService,private fb:FormBuilder,private route:Router) { }
   loginuser:any;
+  shows:boolean = false
   ngOnInit() {
 
   }
@@ -19,12 +21,34 @@ export class SigninComponent implements OnInit {
     email:new FormControl('',[Validators.required]),
     password :new FormControl('',[Validators.required]),
  })
+ singupForm = this.fb.group({
+  username: new FormControl('', [Validators.required]),
+  email: new FormControl('', [Validators.required]),
+  password: new FormControl('', [Validators.required])
+})
   singIn(){
-    this._auth.loginin(this.singIn)
+    debugger
+    this.auth.loginin(this.signinForm.value)
     .subscribe((res:any) =>{
-      //console.log(add);
+      if (res.response.respons == "succses"&& res.response.user) {
+        console.log(res);
       localStorage.setItem('token', res.token)
+      this.route.navigate(['/'])
+      } else {
+
+      }
     })
     }
+showhide(){
+console.log(this.shows);
 
+this.shows = this.shows ? false :true
+
+// if (this.shows) {
+//   this.shows =fasle
+// } else {
+//   this.shows =true
+
+// }
+}
 }

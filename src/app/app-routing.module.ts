@@ -11,7 +11,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { PaymentComponent } from './payment/payment.component';
 import { SigninComponent } from './auth1/signin/signin.component';
 import { SignupComponent } from './auth1/signup/signup.component';
-
+import { HomepageComponent } from './homepage/homepage/homepage.component';
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: FrontPageComponent },
   {
@@ -34,11 +34,19 @@ const routes: Routes = [
     ]
   },
 
+  {
+    path: 'homepage',
+  component: HomepageComponent,
+  children: [
+    { path: 'homapage', component: HomepageComponent }]
+  },
+
 
   { path: 'shopping-cart', component: ShoppingCartComponent },
   { path: 'payment', component: PaymentComponent },
   { path: 'empty', component: EmptyComponent },
-  // { path: '**', component: NotFoundComponent }
+  {path:'homepage',component:HomepageComponent}
+  // { path: '**', component: NotFoundComponent }],
 
 
 ];

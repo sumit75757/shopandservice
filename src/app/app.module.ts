@@ -22,6 +22,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { PaymentComponent } from './payment/payment.component';
 import { SigninComponent } from './auth1/signin/signin.component';
 import { SignupComponent } from './auth1/signup/signup.component';
+import { HomepageComponent } from './homepage/homepage/homepage.component';
 
 
 
@@ -38,6 +39,7 @@ import { SignupComponent } from './auth1/signup/signup.component';
     PaymentComponent,
     SigninComponent,
     SignupComponent,
+    HomepageComponent,
 
   ],
   imports: [

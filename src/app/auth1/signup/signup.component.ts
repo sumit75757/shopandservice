@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthServicService } from '../auth-servic.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -10,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private _auth:AuthServicService,private fb:FormBuilder) { }
+  constructor(private _auth:AuthServicService,private fb:FormBuilder,private route:Router) { }
 
   ngOnInit() {
   }
@@ -21,10 +22,17 @@ export class SignupComponent implements OnInit {
     password: new FormControl('', [Validators.required])
   })
   singUp(){
-    this._auth.singup(this.singUp)
+    debugger
+    this._auth.singup(this.singupForm.value)
     .subscribe((res:any) =>{
-      //console.log(add);
+      if (res.response.respons == "succses"&& res.response.user) {
+        console.log(res);
       localStorage.setItem('token', res.token)
+      this.route.navigate(['/'])
+      } else {
+
+      }
+
     })
 
 }

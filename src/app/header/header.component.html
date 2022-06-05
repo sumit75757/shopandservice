@@ -16,14 +16,16 @@
             <ul *ngIf="menuList" class="nav navbar-nav navbar-right">
                 <li *ngFor="let menu of menuList" [class.dropdown]="menu.hasChildren">
                     <!-- Have SubMenu -->
+
                     <a *ngIf="menu.hasChildren" class="dropdown-toggle" data-toggle="dropdown">{{menu.name}}<b class="caret"></b></a>
                     <ul *ngIf="menu.hasChildren" class="dropdown-menu my-dropdown-menu">
                         <li *ngFor="let subMenu of menu.children" [routerLink]="['category/'+ subMenu.redirect]"><a>{{subMenu.name}}</a></li>
                     </ul>
                     <!-- No SubMenu -->
                     <a *ngIf="!menu.hasChildren" [routerLink]="[menu.redirect]">{{menu.name}}</a>
-                </li>
+                  </li>
                 <!-- Shopping Cart -->
+                <li><a routerLink="D:\shopandservice\src\app\homepage\homepage"  >homepage</a></li>
                 <li><a [routerLink]="'./shopping-cart'" class="cart">Shopping Cart<span class="badge my-badge">{{dataService.shoppingCartData.length}}</span></a></li>
                 <li> <a routerLink="./auth1/signin">signin</a></li>
                 <li><a routerLink="./auth1/signup" class="btn btn-link">SignUp</a></li>
