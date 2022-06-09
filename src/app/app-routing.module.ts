@@ -12,6 +12,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { SigninComponent } from './auth1/signin/signin.component';
 import { SignupComponent } from './auth1/signup/signup.component';
 import { HomepageComponent } from './homepage/homepage/homepage.component';
+import { AuthGardGuard } from './services/auth-gard.guard';
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: FrontPageComponent },
   {
@@ -29,17 +30,17 @@ const routes: Routes = [
     path: 'auth1',
     //component: ,
     children: [
-      { path: 'signin', component: SigninComponent },// route ma a : na ave a khali prea miter ma data pass karva mate use thay
+      { path: 'signin',  component: SigninComponent },// route ma a : na ave a khali prea miter ma data pass karva mate use thay
       { path: 'signup', component: SignupComponent },
     ]
   },
 
-  {
+ /* {
     path: 'homepage',
   component: HomepageComponent,
   children: [
     { path: 'homapage', component: HomepageComponent }]
-  },
+  },*/
 
 
   { path: 'shopping-cart', component: ShoppingCartComponent },

@@ -5,9 +5,14 @@
   <input class="form-control" type="email" formControlName="email"   ><br>
   <label>Password</label>
   <input class="form-control" type="password" formControlName="password"   placeholder="password"><br>
-  <button type="button" class="btn"  (click)="singIn()">SingIn</button>
+
+  <button  *ngIf="btnhidde"  type="button" class="btn"  (click)="singIn()">SingIn</button>
 
 </form><br><br>
+<form  *ngIf="otp"  [formGroup]="otpForm">
 
+  <input   class="form-control" type="tel" formControlName="otp"   placeholder="Otp"><br>
+  <button    type="button" class="btn"  (click)="sendOtp()">Otp</button>
+</form>
 </div>
 
