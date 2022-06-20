@@ -67,7 +67,7 @@ export class SigninComponent implements OnInit {
 
 
 sendOtp(){
-  this.auth.otp(this.userData.email).subscribe(res=>{
+  this.auth.veryfyotp(this.userData.email).subscribe(res=>{
     console.log(res);
 
   })
