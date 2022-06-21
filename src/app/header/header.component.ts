@@ -16,11 +16,12 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
   let token =  localStorage.getItem('token')
-    let userdata = localStorage.getItem('userData')
+    let userdata = localStorage.getItem('userdata')
+    debugger
     if (token && userdata) {
-      this.user = false
-    } else {
       this.user = true
+    } else {
+      this.user = false
     }
     this.getMenuList();
   }

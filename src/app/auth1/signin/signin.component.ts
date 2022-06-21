@@ -42,6 +42,7 @@ async  singIn(){
           console.log(res);
         })
       localStorage.setItem('token', res.token)
+        localStorage.setItem('userData', JSON.stringify(res.useData))
       //this.signinForm.addControl(  "otp", new FormControl('',[Validators.required]) )
      // this.route.navigate(['/'])
       } else {

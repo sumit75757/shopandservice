@@ -29,6 +29,8 @@ export class SignupComponent implements OnInit {
      // if (res.response.respons == "succses"&& res.response.user) {
         console.log(res);
       localStorage.setItem('token', res.token)
+      localStorage.setItem('userData', JSON.stringify(res.useData))
+
       this.route.navigate(['/'])
      /* } else {
         return false;

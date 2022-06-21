@@ -27,9 +27,9 @@
                 <!-- Shopping Cart -->
                 <li><a  routerLink="./homepage"  > homepage</a></li>
                 <li><a [routerLink]="'./shopping-cart'" class="cart">Shopping Cart<span class="badge my-badge">{{dataService.shoppingCartData.length}}</span></a></li>
-                <li *ngIf="user" > <a routerLink="./auth1/signin">SignIn</a></li>
-                <li *ngIf="user"><a routerLink="./auth1/signup">SignUp</a></li>
-                <li *ngIf="!user"><a (click)="logout()">LogOut</a></li>
+                <li *ngIf="!user" > <a routerLink="./auth1/signin">SignIn</a></li>
+                <li *ngIf="!user"><a routerLink="./auth1/signup">SignUp</a></li>
+                <li *ngIf="user"><a (click)="logout()">LogOut</a></li>
 
 
               </ul>
