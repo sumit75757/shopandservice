@@ -28,9 +28,8 @@ export class SigninComponent implements OnInit {
      otp:new FormControl('',[Validators.required]),
  })
 
-  singIn(){
-    debugger
-    this.auth.loginin(this.signinForm.value)
+async  singIn(){
+  await  this.auth.loginin(this.signinForm.value)
     .subscribe((res:any) =>{
       if (res.response.respons == "succses"&& res.response.user) {
         console.log(res);
@@ -38,7 +37,8 @@ export class SigninComponent implements OnInit {
         this.btnhidde=false;
         this.userData = res.useData
         ////get otp api
-        this.auth.otp(this.userData.email).subscribe(res=>{
+        let email = { email: this.userData.email}
+        this.auth.otp(email).subscribe(res=>{
           console.log(res);
         })
       localStorage.setItem('token', res.token)
@@ -49,7 +49,15 @@ export class SigninComponent implements OnInit {
       }
     })
 
+  }
+  resend() {
+    let obj = {
+      email: this.signinForm.controls['email'].value
     }
+    this.auth.otp(obj).subscribe(res => {
+      console.log(res);
+    })
+  }
 
 // showhide(){
 // console.log(this.shows);
@@ -67,7 +75,7 @@ export class SigninComponent implements OnInit {
 
 
 sendOtp(){
-  this.auth.otp(this.userData.email).subscribe(res=>{
+  this.auth.veryfyotp(this.otpForm.value).subscribe(res=>{
     console.log(res);
 
   })

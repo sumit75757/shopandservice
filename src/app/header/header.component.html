@@ -25,10 +25,12 @@
                     <a *ngIf="!menu.hasChildren" [routerLink]="[menu.redirect]">{{menu.name}}</a>
                   </li>
                 <!-- Shopping Cart -->
-                <li><a  routerLink="./homepage"  class="btn btn-link" > homepage</a></li>
+                <li><a  routerLink="./homepage"  > homepage</a></li>
                 <li><a [routerLink]="'./shopping-cart'" class="cart">Shopping Cart<span class="badge my-badge">{{dataService.shoppingCartData.length}}</span></a></li>
-                <li> <a routerLink="./auth1/signin">signin</a></li>
-                <li><a routerLink="./auth1/signup" class="btn btn-link">SignUp</a></li>
+                <li *ngIf="user" > <a routerLink="./auth1/signin">SignIn</a></li>
+                <li *ngIf="user"><a routerLink="./auth1/signup">SignUp</a></li>
+                <li *ngIf="!user"><a (click)="logout()">LogOut</a></li>
+
 
               </ul>
         </div>

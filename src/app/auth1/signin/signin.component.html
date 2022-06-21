@@ -8,6 +8,7 @@
 
   <button  *ngIf="btnhidde"  type="button" class="btn"  (click)="singIn()">SingIn</button>
 
+  <a class="m-3" (click)="resend()">Resend otp</a>
 </form><br><br>
 <form  *ngIf="otp"  [formGroup]="otpForm">
 
