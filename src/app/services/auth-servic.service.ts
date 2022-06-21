@@ -7,6 +7,7 @@ export class AuthServicService {
   token:any= localStorage.getItem('token');
   // baseurl:any='https://nodejssssss.herokuapp.com/';
   baseurl:any='http://localhost:4000/';
+   //baseurl:any='https://localhost:80/';
 
   constructor(private http:HttpClient) { }
   header = new HttpHeaders({
@@ -21,8 +22,8 @@ export class AuthServicService {
   otp(data){
     return this.http.post(this.baseurl + 'api/auth/varification/', data ,{ headers: this.header});
   }
-  veryfyotp(data) {
-    return this.http.post(this.baseurl + 'api/auth/varification/otp', data, { headers: this.header });
 
+  veryfyotp(data){
+    return this.http.post(this.baseurl+'api/auth/varification/otp',data,{headers:this.header});
   }
 }
